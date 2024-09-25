@@ -4,11 +4,13 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 
 dotenv.config();
-connectDB();
+connectDB(); // Connect to MongoDB
 
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); // Middleware to parse JSON
+
+// Define routes
 app.use('/api/auth', require('./routes/authRoutes'));
 
 const PORT = process.env.PORT || 5000;
